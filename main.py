@@ -29,49 +29,46 @@ class Giohang:
 class App:
     def __init__(self, master):
         self.master = master
-        self.master.title("ỨNG DỤNG BÁN HÀNG")
+        self.master.title("TECH HUB")
 
         # Header
         self.header = Frame(self.master, bg="white", pady=20)
         self.header.pack(side=TOP, fill=X)
 
-        # Mở và xử lý ảnh
-        image = Image.open("C:\\Users\Admin\OneDrive\Máy tính\Kỹ Thuật Lập Trình\\techhub.png")
-        image = image.resize((100, 50))  # Thay đổi kích thước ảnh
-        # Tạo đối tượng PhotoImage từ ảnh đã xử lý
-        photo = ImageTk.PhotoImage(image)
         # Tạo label để hiển thị ảnh trên giao diện
-        self.logo = Label(self.header, image=photo, bg="white")
-        self.logo.image = photo
+        photo_logo = xuly_image("https://ik.imagekit.io/nhom2/Logo/techhub.png?updatedAt=1679738096844", 100, 50)
+        self.logo = Label(self.header, image=photo_logo, bg="white")
+        self.logo.image = photo_logo
         self.logo.place(relx=0.01, rely=0.5, anchor=W)
 
         self.name = Label(self.header, text="TECH HUB SHOP", font=("Times New Roman", 35), bg="white")
         self.name.place(relx=0.5, rely=0.5, anchor=CENTER)
 
-        self.login_button = Button(self.header, text="Đăng nhập/Đăng ký", font=("Times New Roman", 12), bg="white")
+        self.login_button = Button(self.header, text="Đăng nhập/Đăng ký", font=("Times New Roman", 12), bg="white", relief=SOLID)
         self.login_button.pack(padx=10, anchor=E)
 
         # Sidebar
         self.sidebar = Frame(self.master, bg="white", padx=10, pady=10)
         self.sidebar.pack(side=LEFT, fill=Y)
-        self.categories = ["Laptop", "Laptop Gaming", "PC Gaming", "PC Đồ Họa", "Apple", "Màn Hình", "Bàn phím", "Chuột", "Tai nghe - Loa", "Phụ kiện"]
+        self.categories = ["Laptop", "Laptop Gaming", "PC Gaming", "PC Đồ Họa", "Apple", "Màn Hình", "Bàn phím",
+                           "Chuột", "Tai nghe - Loa", "Phụ kiện"]
 
         for category in self.categories:
-            button = Button(self.sidebar, text=category, font=("Times New Roman", 12), bg="white")
+            button = Button(self.sidebar, text=category, font=("Times New Roman", 12), bg="white", relief=SOLID)
             button.pack(side=TOP, pady=10)
 
         # Tạo một canvas để chứa danh sách sản phẩm
         self.canvas = Canvas(master, bg="white", highlightthickness=0)
         self.canvas.pack(side=LEFT, fill=BOTH, expand=True)
 
-        # Tạo một scrollbar và liên kết nó với canvas
-        self.scrollbar = Scrollbar(master, orient=VERTICAL, command=self.canvas.yview)
-        self.scrollbar.pack(side=RIGHT, fill=Y)
-        self.canvas.config(yscrollcommand=self.scrollbar.set)
-
         # Tạo một frame để chứa danh sách sản phẩm
         self.product_list = Frame(self.canvas, padx=10, pady=10, bg="white")
         self.canvas.create_window((0, 0), window=self.product_list, anchor=NW)
+
+        # Tạo một scrollbar và liên kết nó với canvas
+        self.scrollbar = Scrollbar(self.product_list, orient=VERTICAL, command=self.canvas.yview)
+        self.scrollbar.pack(side=RIGHT, fill=Y)
+        self.canvas.config(yscrollcommand=self.scrollbar.set)
 
         # Thêm danh sách sản phẩm vào frame
         self.products = [Products("Áo sơ mi nam", 500000, "Chất liệu cotton, kiểu dáng trẻ trung",
@@ -109,7 +106,7 @@ class App:
                                       wraplength=200)
             description_label.pack(side=TOP, padx=10, pady=10)
 
-            add_to_cart_button = Button(product_info, text="Thêm vào giỏ hàng", font=("Times New Roman", 12), bg="white",
+            add_to_cart_button = Button(product_info, text="Thêm vào giỏ hàng", font=("Times New Roman", 12), bg="white", relief=SOLID,
                                         command=lambda p=product: self.add_to_cart(p))
             add_to_cart_button.pack(side=TOP, padx=10, pady=10)
 
@@ -138,7 +135,7 @@ class App:
         price_label = Label(cart_item, text="{} VNĐ".format(product.price), font=("Times New Roman", 12), bg="white")
         price_label.pack(side=RIGHT, padx=10)
 
-        remove_button = Button(cart_item, text="Xóa", font=("Times New Roman", 12), bg="white",
+        remove_button = Button(cart_item, text="Xóa", font=("Times New Roman", 12), bg="white", relief=SOLID,
                                command=lambda p=product: self.remove_from_cart(p, cart_item))
         remove_button.pack(side=RIGHT, padx=10)
 
