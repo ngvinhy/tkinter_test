@@ -56,18 +56,9 @@ class App:
             button = Button(self.sidebar, text=category, font=("Times New Roman", 12), bg="white", relief=SOLID)
             button.pack(side=TOP, pady=10)
 
-        # Tạo một canvas để chứa danh sách sản phẩm
-        self.canvas = Canvas(master, bg="white", highlightthickness=0)
-        self.canvas.pack(side=LEFT, fill=BOTH, expand=True)
-
-        # Tạo một frame để chứa danh sách sản phẩm
-        self.product_list = Frame(self.canvas, padx=10, pady=10, bg="white")
-        self.canvas.create_window((0, 0), window=self.product_list, anchor=NW)
-
-        # Tạo một scrollbar
-        self.scrollbar = Scrollbar(self.product_list, orient=VERTICAL, command=self.canvas.yview)
-        self.scrollbar.pack(side=RIGHT, fill=Y)
-        self.canvas.config(yscrollcommand=self.scrollbar.set)
+        # Danh sách sản phẩm
+        self.product_list = Frame(self.master, padx=10, pady=10, bg="white")
+        self.product_list.pack(side=LEFT, fill=BOTH, expand=FALSE)
 
         # Thêm danh sách sản phẩm vào frame
         self.products = [Products("Áo sơ mi nam", 500000, "Chất liệu cotton, kiểu dáng trẻ trung",
