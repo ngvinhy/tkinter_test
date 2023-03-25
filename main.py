@@ -62,18 +62,18 @@ class App:
 
         # Thêm danh sách sản phẩm vào frame
         self.products = [Products("Áo sơ mi nam", 500000, "Chất liệu cotton, kiểu dáng trẻ trung",
-                                  "https://ik.imagekit.io/nhom2/default-image.jpg?updatedAt=1679737574283"),
+                                  "https://ik.imagekit.io/nhom2/Logo/techhub.png?updatedAt=1679738096844"),
                          Products("Điện thoại Samsung Galaxy S21", 20000000,
                                   "Màn hình 6.2 inch, RAM 8GB, bộ nhớ 128GB",
-                                  "https://ik.imagekit.io/nhom2/default-image.jpg?updatedAt=1679737574283"),
+                                  "https://ik.imagekit.io/nhom2/Logo/techhub.png?updatedAt=1679738096844"),
                          Products("Sữa tắm Baby & Mom", 100000, "Dành cho trẻ em, không gây kích ứng da",
-                                  "https://ik.imagekit.io/nhom2/default-image.jpg?updatedAt=1679737574283"),
+                                  "https://ik.imagekit.io/nhom2/Logo/techhub.png?updatedAt=1679738096844"),
                          Products("Sách Harry Potter và Hòn đá Phù thủy", 200000,
                                   "Tác giả J.K. Rowling, phiên bản bìa mềm",
-                                  "https://ik.imagekit.io/nhom2/default-image.jpg?updatedAt=1679737574283"),
+                                  "https://ik.imagekit.io/nhom2/Logo/techhub.png?updatedAt=1679738096844"),
                          Products("Son môi Maybelline Superstay Matte Ink", 150000,
                                   "Chất son mịn, không bị lem, lên màu chuẩn",
-                                  "https://ik.imagekit.io/nhom2/default-image.jpg?updatedAt=1679737574283")]
+                                  "https://ik.imagekit.io/nhom2/Logo/techhub.png?updatedAt=1679738096844")]
 
         for product in self.products:
             frame = Frame(self.product_list, bg="white", bd=1, relief=SOLID)
