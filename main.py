@@ -1,6 +1,5 @@
 from tkinter import *
 from func import *
-from PIL import ImageTk, Image
 
 
 class Products:
@@ -65,7 +64,7 @@ class App:
         self.product_list = Frame(self.canvas, padx=10, pady=10, bg="white")
         self.canvas.create_window((0, 0), window=self.product_list, anchor=NW)
 
-        # Tạo một scrollbar và liên kết nó với canvas
+        # Tạo một scrollbar
         self.scrollbar = Scrollbar(self.product_list, orient=VERTICAL, command=self.canvas.yview)
         self.scrollbar.pack(side=RIGHT, fill=Y)
         self.canvas.config(yscrollcommand=self.scrollbar.set)
